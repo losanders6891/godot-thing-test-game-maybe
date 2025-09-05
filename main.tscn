@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7mvtxt8vt666"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
+vertex_color_is_srgb = true
+albedo_color = Color(3.46541e-06, 0.741798, 0.822583, 1)
+metallic = 0.63
+metallic_specular = 0.13
+clearcoat_enabled = true
+clearcoat_roughness = 0.91
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
+material = SubResource("StandardMaterial3D_ig7tw")
+size = Vector3(60, 2, 60)
+
+[node name="main" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.646393, 0, -0.617096)
+shape = SubResource("BoxShape3D_7dm0k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.638929, 0, -0.617109)
+mesh = SubResource("BoxMesh_0xm2m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.299291, -0.954162, 2.30572e-11, -0.542103, 0.170041, 0.822928, -0.785207, 0.246295, -0.568145, 0, 29.8844, 0)
+light_energy = 0.568
+light_indirect_energy = 0.0
