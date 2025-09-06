@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://maey76qlgkxw"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_bu0v1"]
+
+[sub_resource type="Skin" id="Skin_iwpo4"]
+bind_count = 9
+bind/0/name = &""
+bind/0/bone = -1
+bind/0/pose = Transform3D(1110.98, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/1/name = &""
+bind/1/bone = -1
+bind/1/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/2/name = &""
+bind/2/bone = -1
+bind/2/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/3/name = &""
+bind/3/bone = -1
+bind/3/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/4/name = &""
+bind/4/bone = -1
+bind/4/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/5/name = &""
+bind/5/bone = -1
+bind/5/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/6/name = &""
+bind/6/bone = -1
+bind/6/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/7/name = &""
+bind/7/bone = -1
+bind/7/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/8/name = &""
+bind/8/bone = -1
+bind/8/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="Skeleton3D" type="Skeleton3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0102364, 0.277703, 0)
+mesh = SubResource("ImmediateMesh_bu0v1")
+skin = SubResource("Skin_iwpo4")
