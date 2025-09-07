@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://maey76qlgkxw"]
+[gd_scene load_steps=4 format=3 uid="uid://maey76qlgkxw"]
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_bu0v1"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_bu0v1"]
+size = Vector3(0.568359, 1.04565, 0.445679)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_iwpo4"]
+radius = 0.25
+height = 1.0
 
 [sub_resource type="Skin" id="Skin_iwpo4"]
 bind_count = 9
@@ -34,13 +39,22 @@ bind/8/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 
+[node name="pivot" type="Node3D" parent="."]
+
+[node name="camera pivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.02, 0, 0, 0, 1.04748, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="camera pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948425, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-
-[node name="Skeleton3D" type="Skeleton3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00603437, 0.546693, 0.116394)
+shape = SubResource("BoxShape3D_bu0v1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0102364, 0.277703, 0)
-mesh = SubResource("ImmediateMesh_bu0v1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0102364, 0.484582, 0.0829174)
+mesh = SubResource("CapsuleMesh_iwpo4")
 skin = SubResource("Skin_iwpo4")
+
+[node name="Skeleton3D" type="Skeleton3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0102364, -0.484582, -0.0829174)
