@@ -1,4 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://maey76qlgkxw"]
+[gd_scene load_steps=5 format=3 uid="uid://maey76qlgkxw"]
+
+[sub_resource type="GDScript" id="GDScript_v6v2q"]
+script/source = "extends Camera3D
+"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bu0v1"]
 size = Vector3(0.568359, 1.04565, 0.445679)
@@ -41,11 +45,12 @@ bind/8/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="pivot" type="Node3D" parent="."]
 
-[node name="camera pivot" type="Marker3D" parent="."]
+[node name="cameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.02, 0, 0, 0, 1.04748, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="camera pivot"]
+[node name="Camera3D" type="Camera3D" parent="cameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948425, 0)
+script = SubResource("GDScript_v6v2q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00603437, 0.546693, 0.116394)

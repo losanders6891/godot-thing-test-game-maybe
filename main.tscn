@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7mvtxt8vt666"]
+[gd_scene load_steps=5 format=3 uid="uid://b7mvtxt8vt666"]
+
+[ext_resource type="PackedScene" uid="uid://maey76qlgkxw" path="res://BEAN.tscn" id="1_ig7tw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(60, 2, 60)
@@ -16,6 +18,7 @@ material = SubResource("StandardMaterial3D_ig7tw")
 size = Vector3(60, 2, 60)
 
 [node name="main" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.815866, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -31,3 +34,6 @@ mesh = SubResource("BoxMesh_0xm2m")
 transform = Transform3D(-0.299291, -0.954162, 2.30572e-11, -0.542103, 0.170041, 0.822928, -0.785207, 0.246295, -0.568145, 0, 29.8844, 0)
 light_energy = 0.568
 light_indirect_energy = 0.0
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29019, 0)
