@@ -1,8 +1,9 @@
 extends CharacterBody3D
 var movespeed = 7
-var fallspeed = 15
+var gravity = 15
 var jumpspeed = 20
 var dashspeed = 30
+
 
 #start the main physics loop
 func _physics_process(delta):
@@ -20,6 +21,12 @@ func _physics_process(delta):
 	#normalize movement
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
+	
+		
+		
+
+		
+	
 	
 	
 	

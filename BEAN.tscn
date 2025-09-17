@@ -43,17 +43,15 @@ bind/8/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 
-[node name="pivot" type="Node3D" parent="."]
+[node name="neck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.998537, -0.0540788, 0, 0.0540788, 0.998537, 0, 0.898886, 0)
 
-[node name="cameraPivot" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.02, 0, 0, 0, 1.04748, 0, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="cameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948425, 0)
+[node name="Camera3D" type="Camera3D" parent="neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0254339, -0.221016)
 script = SubResource("GDScript_v6v2q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00603437, 0.546693, 0.116394)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00603437, 0.546693, 0.0964388)
 shape = SubResource("BoxShape3D_bu0v1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
