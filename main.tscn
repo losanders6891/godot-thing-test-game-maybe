@@ -1,10 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7mvtxt8vt666"]
+[gd_scene load_steps=8 format=3 uid="uid://b7mvtxt8vt666"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
+[ext_resource type="PackedScene" uid="uid://maey76qlgkxw" path="res://BEAN.tscn" id="1_ig7tw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
+sky_top_color = Color(0.6376, 0.281882, 0.643884, 1)
+sky_horizon_color = Color(0.672296, 0.533682, 0.613184, 1)
+ground_bottom_color = Color(0.30119, 0.102451, 0.058458, 1)
+ground_horizon_color = Color(0.672296, 0.533682, 0.613184, 1)
+energy_multiplier = 2.8
+
+[sub_resource type="Sky" id="Sky_0xm2m"]
+sky_material = SubResource("ProceduralSkyMaterial_ig7tw")
+
+[sub_resource type="Environment" id="Environment_h2yge"]
+background_mode = 2
+sky = SubResource("Sky_0xm2m")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="Skin" id="Skin_h2yge"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
+size = Vector3(49.7863, 1, 50.5859)
 
 [node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h2yge")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("PlaneMesh_7dm0k")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12318, 2.73505, 3.14608)
+mesh = SubResource("BoxMesh_0xm2m")
+skin = SubResource("Skin_h2yge")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.588203, 3.32209, 2.56472)
+shape = SubResource("BoxShape3D_ig7tw")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.324081, 3.25346, -0.00156879)
+
+[node name="solar orbit" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.771625, 0.636078, 0, -0.636078, -0.771625, 0, 21.1589, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="solar orbit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0922565, 0)
+light_energy = 2.829
+shadow_enabled = true

@@ -10,6 +10,7 @@ func _physics_process(delta):
 	#initialize and reset direction
 	var direction = Vector3.ZERO
 	
+	#XZ = ground plane
 	if Input.is_action_pressed("walk-forward"):
 		direction.z -= 1
 	if Input.is_action_pressed("walk-backward"):
@@ -18,9 +19,17 @@ func _physics_process(delta):
 		direction.x -= 1
 	if Input.is_action_pressed("strafe-right"):
 		direction.x += 1
+	
+	if Input.is_action_pressed("jump") and  is_on_floor():
+		velocity.y += jumpspeed
+	if not is_on_floor():
+		velocity.y -= gravity
 	#normalize movement
 	if direction != Vector3.ZERO:
-		direction = direction.normalized()
+		direction = direction.normalized() 
+	
+	
+	
 	
 		
 		
