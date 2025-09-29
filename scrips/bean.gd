@@ -4,19 +4,23 @@ var gravity = 15
 var jumpspeed = 20 
 var dashspeed = 30
 
-@onready var neck := $Neck 
-@onready var camera := $Neck/Camera3D
 
-func _unhandled_input(event: InputEvent):
-	if event is InputEventMouseButton:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	elif event.is_action_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		if event is InputEventMouseMotion:
-			neck.rotate_y(-event.relative.x *0.01)
-			camera.rotate_x(-event.relative.y *0.01)
-			camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-30),deg_to_rad(60))
+#exports data or somthing, refrence in later code on other 
+@export_category("mouse capture settings")
+@export var current_mouse_mode : Input.MouseMode = Input.MOUSE_MODE_CAPTURED
+@export var mouseSensitivity = 0.005
+
+
+var captureMouse : bool
+var mouseInput : Vector2
+
+# runs if an input is detected doesnt get used by Input
+func _unhandled_input(event: InputEvent) -> void:
+	#checks if the registered movement is mouse motion
+	captureMouse = event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
+	if captureMouse:
+		mouseInput.x += -event.screen_relative.x * mouseSensitivity
+		mouseInput.y += -event.screen_relative.y * mouseSensitivity
 		
 #start the main physics loop
 func _physics_process(delta):
