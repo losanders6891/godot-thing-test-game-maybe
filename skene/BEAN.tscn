@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://maey76qlgkxw"]
+[gd_scene load_steps=5 format=3 uid="uid://maey76qlgkxw"]
+
+[ext_resource type="Script" uid="uid://cju2jkp53y2ny" path="res://skene/neck.gd" id="1_woxnr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bu0v1"]
 size = Vector3(0.568359, 1.04565, 0.445679)
@@ -53,6 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0102364, -0.484582, -0.0829
 
 [node name="Neck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.788851, -0.321537)
+script = ExtResource("1_woxnr")
 
 [node name="Camera3D" type="Camera3D" parent="Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0700853)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7mvtxt8vt666"]
+[gd_scene load_steps=9 format=3 uid="uid://b7mvtxt8vt666"]
 
 [ext_resource type="PackedScene" uid="uid://maey76qlgkxw" path="res://skene/BEAN.tscn" id="1_wlvi1"]
+[ext_resource type="Script" uid="uid://dtsr46dytwpf4" path="res://scrips/bean.gd" id="2_bipqk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_top_color = Color(0.6376, 0.281882, 0.643884, 1)
@@ -44,6 +45,7 @@ shape = SubResource("BoxShape3D_ig7tw")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_wlvi1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.324081, 3.25346, -0.00156879)
+script = ExtResource("2_bipqk")
 
 [node name="solar orbit" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.771625, 0.636078, 0, -0.636078, -0.771625, 0, 21.1589, 0)
