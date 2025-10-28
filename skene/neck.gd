@@ -3,6 +3,7 @@ var yLockLow = -90
 var yLockHigh = 90
 @export var _rotation: Vector3 
 
+
 func updateCameraRotation(input: Vector3): 
 	_rotation.x = input.y
 	_rotation.y = input.x
@@ -12,6 +13,7 @@ func updateCameraRotation(input: Vector3):
 	var cameraRotation = Vector3(_rotation.x,0.0,0.0)
 	
 	transform.basis = basis.from_euler(cameraRotation)
+	
 	
 	rotation.z = 0.0 
 	

@@ -39,7 +39,7 @@ bind/8/name = &""
 bind/8/bone = -1
 bind/8/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="player" type="CharacterBody3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00603437, 0.546693, 0.0964388)
