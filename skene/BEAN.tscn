@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://maey76qlgkxw"]
+[gd_scene load_steps=6 format=3 uid="uid://maey76qlgkxw"]
 
+[ext_resource type="Script" uid="uid://dtsr46dytwpf4" path="res://scrips/bean.gd" id="1_lspgp"]
 [ext_resource type="Script" uid="uid://cju2jkp53y2ny" path="res://skene/neck.gd" id="1_woxnr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bu0v1"]
@@ -40,6 +41,7 @@ bind/8/bone = -1
 bind/8/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="player" type="CharacterBody3D"]
+script = ExtResource("1_lspgp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00603437, 0.546693, 0.0964388)
@@ -56,6 +58,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0102364, -0.484582, -0.0829
 [node name="Neck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.788851, -0.321537)
 script = ExtResource("1_woxnr")
+_rotation = null
 
 [node name="Camera3D" type="Camera3D" parent="Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0700853)
