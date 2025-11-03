@@ -2,7 +2,7 @@ extends Node3D
 var yLockLow = -90
 var yLockHigh = 90
 @export var _rotation: Vector3
-@export var player: 
+@export var player: CharacterBody3D
 
 func updateCameraRotation(input: Vector3): 
 	_rotation.x = input.y
@@ -13,7 +13,7 @@ func updateCameraRotation(input: Vector3):
 	var cameraRotation = Vector3(_rotation.x,0.0,0.0)
 	
 	transform.basis = basis.from_euler(cameraRotation)
-	
+	player.transform.basis = basis.from_euler(playerRotation)
 	
 	rotation.z = 0.0 
 	
