@@ -29,16 +29,4 @@ func _physics_process(delta):
 	#normalize movement
 	if relative_direction != Vector3.ZERO:
 		relative_direction = relative_direction.normalized() 
-	
-	
-	
-	
 		
-		
-
-		
-	
-	
-	
-	
-	
