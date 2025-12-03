@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://maey76qlgkxw"]
 
-[ext_resource type="Script" uid="uid://dtsr46dytwpf4" path="res://scrips/bean.gd" id="1_lspgp"]
-[ext_resource type="Script" uid="uid://cju2jkp53y2ny" path="res://skene/neck.gd" id="1_woxnr"]
-[ext_resource type="Script" uid="uid://dk6eg3ctf3mya" path="res://skene/mouse_capture.gd" id="3_51gaf"]
+[ext_resource type="Script" uid="uid://dtsr46dytwpf4" path="res://scrips/player/bean.gd" id="1_lspgp"]
+[ext_resource type="Script" uid="uid://cju2jkp53y2ny" path="res://scrips/player/neck.gd" id="1_woxnr"]
+[ext_resource type="Script" uid="uid://dk6eg3ctf3mya" path="res://scrips/player/mouse_capture.gd" id="3_51gaf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bu0v1"]
 size = Vector3(0.568359, 1.04565, 0.445679)
@@ -56,14 +56,14 @@ skin = SubResource("Skin_iwpo4")
 [node name="Skeleton3D" type="Skeleton3D" parent="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0102364, -0.484582, -0.0829174)
 
-[node name="Neck" type="Node3D" parent="." node_paths=PackedStringArray("player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.788851, -0.321537)
+[node name="Neck" type="Node3D" parent="." node_paths=PackedStringArray("playerCont", "mouseDetect")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.788851, -0.07315439)
 script = ExtResource("1_woxnr")
-player = NodePath("..")
+playerCont = NodePath("..")
+mouseDetect = NodePath("../components/mouseCapture")
 
 [node name="Camera3D" type="Camera3D" parent="Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0700853)
-visible = false
 current = true
 
 [node name="components" type="Node" parent="."]

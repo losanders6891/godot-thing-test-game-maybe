@@ -16,10 +16,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if captureMouse:
 		mouseInput.x += -event.screen_relative.x * mouseSensitivity
 		mouseInput.y += -event.screen_relative.y * mouseSensitivity
-	print_debug(mouseInput)
 #initialy sets mouse mode
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 #prevents mouse input from accumulating
-func _process(delta: float) -> void:
-	mouseInput = Vector2.ZERO
