@@ -65,6 +65,7 @@ mouseDetect = NodePath("../components/mouseCapture")
 [node name="Camera3D" type="Camera3D" parent="Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0700853)
 current = true
+near = 0.01
 
 [node name="components" type="Node" parent="."]
 

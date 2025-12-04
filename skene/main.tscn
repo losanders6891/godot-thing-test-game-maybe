@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b7mvtxt8vt666"]
 
-[ext_resource type="PackedScene" uid="uid://maey76qlgkxw" path="res://skene/BEAN.tscn" id="1_wlvi1"]
+[ext_resource type="PackedScene" uid="uid://maey76qlgkxw" path="res://skene/entities(character and enemies)/BEAN.tscn" id="1_wlvi1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_top_color = Color(0.6376, 0.281882, 0.643884, 1)
@@ -70,7 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.324081, 3.6339045, -0.00156
 transform = Transform3D(1, 0, 0, 0, -0.771625, 0.636078, 0, -0.636078, -0.771625, 0, 21.1589, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="solar orbit"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0922565, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9999999, -2.9802322e-08, 0, 2.9802322e-08, 0.9999999, 0, 2.5431795, 28.492195)
 light_energy = 2.829
 shadow_enabled = true
 
