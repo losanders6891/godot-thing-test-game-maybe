@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b7mvtxt8vt666"]
 
-[ext_resource type="PackedScene" uid="uid://maey76qlgkxw" path="res://skene/BEAN.tscn" id="1_wlvi1"]
+[ext_resource type="PackedScene" uid="uid://maey76qlgkxw" path="res://skene/entities(character and enemies)/BEAN.tscn" id="1_wlvi1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_top_color = Color(0.6376, 0.281882, 0.643884, 1)
