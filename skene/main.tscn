@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7mvtxt8vt666"]
+[gd_scene load_steps=14 format=3 uid="uid://b7mvtxt8vt666"]
 
 [ext_resource type="PackedScene" uid="uid://maey76qlgkxw" path="res://skene/entities(character and enemies)/BEAN.tscn" id="1_wlvi1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
-sky_top_color = Color(0.6376, 0.281882, 0.643884, 1)
-sky_horizon_color = Color(0.672296, 0.533682, 0.613184, 1)
+sky_top_color = Color(0.23946828, 0.42873153, 0.8093907, 1)
+sky_horizon_color = Color(0.5726998, 0.6088531, 0.31045976, 1)
 ground_bottom_color = Color(0.30119, 0.102451, 0.058458, 1)
 ground_horizon_color = Color(0.672296, 0.533682, 0.613184, 1)
 energy_multiplier = 2.8
@@ -18,34 +18,35 @@ sky = SubResource("Sky_0xm2m")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlvi1"]
+albedo_color = Color(0, 0.28627452, 0, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
-size = Vector3(50, 1, 50)
+material = SubResource("StandardMaterial3D_wlvi1")
+size = Vector3(2000, 1, 2000)
 
 [sub_resource type="Skin" id="Skin_h2yge"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
-size = Vector3(49.7863, 1.1230469, 50.5859)
+size = Vector3(2000, 1, 2000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wlvi1"]
 custom_solver_bias = 0.343
 margin = 1.183
-size = Vector3(2, 2, 2)
+size = Vector3(4, 4, 4)
 
-[sub_resource type="FogMaterial" id="FogMaterial_bipqk"]
-density = 2.7582
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ms6y"]
-next_pass = SubResource("FogMaterial_bipqk")
-vertex_color_is_srgb = true
-metallic = 1.0
-metallic_specular = 0.0
-metallic_texture_channel = 1
-normal_scale = 3.52
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bipqk"]
+albedo_color = Color(0.57161516, 0.7244779, 0.81916684, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_g1cg7"]
-material = SubResource("StandardMaterial3D_2ms6y")
-custom_aabb = AABB(1, 4, 3, 2, 3, 1)
-size = Vector3(2, 2, 2)
+material = SubResource("StandardMaterial3D_bipqk")
+size = Vector3(4, 4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bipqk"]
+size = Vector3(100, 5, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ms6y"]
+size = Vector3(100, 5, 4)
 
 [node name="Node3D" type="Node3D"]
 
@@ -56,6 +57,7 @@ environment = SubResource("Environment_h2yge")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12318, 2.73505, 3.14608)
+custom_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
 mesh = SubResource("BoxMesh_0xm2m")
 skin = SubResource("Skin_h2yge")
 
@@ -64,7 +66,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.588203, 3.2605665, 2.56472)
 shape = SubResource("BoxShape3D_ig7tw")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_wlvi1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.324081, 3.6339045, -0.00156879)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32123524, 3.1857367, -8.3737955)
 
 [node name="solar orbit" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.771625, 0.636078, 0, -0.636078, -0.771625, 0, 21.1589, 0)
@@ -75,11 +77,22 @@ light_energy = 2.829
 shadow_enabled = true
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.119773, 1.6506634)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.184983, 6.7520657)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
 shape = SubResource("BoxShape3D_wlvi1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
 mesh = SubResource("BoxMesh_g1cg7")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.773699, 20.013517)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+shape = SubResource("BoxShape3D_bipqk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8108921, 0.035923004, 0)
+mesh = SubResource("BoxMesh_2ms6y")
 skeleton = NodePath("../..")

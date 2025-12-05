@@ -2,14 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dtsr46dytwpf4" path="res://scrips/player/bean.gd" id="1_lspgp"]
 [ext_resource type="Script" uid="uid://cju2jkp53y2ny" path="res://scrips/player/neck.gd" id="1_woxnr"]
+[ext_resource type="ArrayMesh" uid="uid://bqbldo5mwevgb" path="res://placeholder.obj" id="2_ub76d"]
 [ext_resource type="Script" uid="uid://dk6eg3ctf3mya" path="res://scrips/player/mouse_capture.gd" id="3_51gaf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bu0v1"]
-size = Vector3(0.568359, 1.04565, 0.445679)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_iwpo4"]
-radius = 0.25
-height = 1.0
+size = Vector3(5.3531494, 6.0922832, 3.5695038)
 
 [sub_resource type="Skin" id="Skin_iwpo4"]
 bind_count = 9
@@ -45,19 +42,19 @@ bind/8/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_lspgp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00603437, 0.546693, 0.0964388)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08264959, 3.0700095, -0.5419813)
 shape = SubResource("BoxShape3D_bu0v1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0102364, 0.484582, 0.0829174)
-mesh = SubResource("CapsuleMesh_iwpo4")
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.0102364, 0.484582, 0.0829174)
+mesh = ExtResource("2_ub76d")
 skin = SubResource("Skin_iwpo4")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0102364, -0.484582, -0.0829174)
 
 [node name="Neck" type="Node3D" parent="." node_paths=PackedStringArray("playerCont", "mouseDetect")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.788851, -0.07315439)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6344132, -0.7394327)
 script = ExtResource("1_woxnr")
 playerCont = NodePath("..")
 mouseDetect = NodePath("../components/mouseCapture")
@@ -65,7 +62,7 @@ mouseDetect = NodePath("../components/mouseCapture")
 [node name="Camera3D" type="Camera3D" parent="Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0700853)
 current = true
-near = 0.01
+near = 0.001
 
 [node name="components" type="Node" parent="."]
 

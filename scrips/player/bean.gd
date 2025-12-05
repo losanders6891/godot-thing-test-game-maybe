@@ -1,10 +1,10 @@
 class_name playerController extends CharacterBody3D
-var movespeed = 14
+var movespeed = 12
 var gravity = 0.8
 var jumpspeed = 20 
 var dashspeed = 30
 var acceleration = 0.5
-var deceleration = 0.5
+var deceleration = 0.75
 var movementVelocity : Vector3 = Vector3.ZERO
 
 #rotates player

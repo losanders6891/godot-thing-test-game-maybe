@@ -10,7 +10,7 @@ var mouseInput : Vector2
 func _unhandled_input(event: InputEvent) -> void:
 	#recaptures mouse if it clicks on the window.
 	if event is InputEventMouseButton and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	#checks if the registered movement is mouse motion
 	captureMouse = event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
 	if captureMouse:
