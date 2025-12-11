@@ -20,6 +20,7 @@ func _physics_process(delta):
 		velocity.y += jumpspeed
 	if not is_on_floor():
 		velocity.y -= gravity
+		
 	
 	#XZ = ground plane
 	var inputDir = Input.get_vector("strafe-left","walk-backward","walk-forward","strafe-right")

@@ -33,7 +33,7 @@ size = Vector3(2000, 1, 2000)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wlvi1"]
 custom_solver_bias = 0.343
 margin = 1.183
-size = Vector3(4, 4, 4)
+size = Vector3(4, 4, 4.0112305)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bipqk"]
 albedo_color = Color(0.57161516, 0.7244779, 0.81916684, 1)
@@ -69,17 +69,18 @@ shape = SubResource("BoxShape3D_ig7tw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32123524, 3.1857367, -8.3737955)
 
 [node name="solar orbit" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.771625, 0.636078, 0, -0.636078, -0.771625, 0, 21.1589, 0)
+transform = Transform3D(1, 0, 0, 0, -0.771625, 0.636078, 0, -0.636078, -0.771625, 0, 417.386, 469.0434)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="solar orbit"]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, -2.9802322e-08, 0, 2.9802322e-08, 0.9999999, 0, 2.5431795, 28.492195)
-light_energy = 2.829
+light_energy = 0.654
 shadow_enabled = true
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.184983, 6.7520657)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0056152344)
 shape = SubResource("BoxShape3D_wlvi1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
@@ -90,6 +91,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.773699, 20.013517)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7626038, 0, 0)
 shape = SubResource("BoxShape3D_bipqk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
