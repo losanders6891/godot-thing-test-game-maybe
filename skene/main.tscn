@@ -33,20 +33,20 @@ size = Vector3(2000, 1, 2000)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wlvi1"]
 custom_solver_bias = 0.343
 margin = 1.183
-size = Vector3(4, 4, 4.0112305)
+size = Vector3(4, 2, 4.011)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bipqk"]
 albedo_color = Color(0.57161516, 0.7244779, 0.81916684, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_g1cg7"]
 material = SubResource("StandardMaterial3D_bipqk")
-size = Vector3(4, 4, 4)
+size = Vector3(4, 2, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bipqk"]
-size = Vector3(100, 5, 4)
+size = Vector3(100, 40, 4)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2ms6y"]
-size = Vector3(100, 5, 4)
+size = Vector3(100, 40, 4)
 
 [node name="Node3D" type="Node3D"]
 
@@ -88,13 +88,13 @@ mesh = SubResource("BoxMesh_g1cg7")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.773699, 20.013517)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.212654, 58.939056)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7626038, 0, 0)
+auto_translate_mode = 1
 shape = SubResource("BoxShape3D_bipqk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8108921, 0.035923004, 0)
+auto_translate_mode = 1
 mesh = SubResource("BoxMesh_2ms6y")
 skeleton = NodePath("../..")
