@@ -51,9 +51,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.0
 mesh = SubResource("CapsuleMesh_xc0up")
 skin = SubResource("Skin_iwpo4")
 
-[node name="Skeleton3D" type="Skeleton3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0102364, -0.484582, -0.0829174)
-
 [node name="Neck" type="Node3D" parent="." node_paths=PackedStringArray("playerCont", "mouseDetect")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7602038, -0.27880973)
 script = ExtResource("1_woxnr")

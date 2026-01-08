@@ -1,3 +1,4 @@
+## controlls camera rotation
 class_name neck extends Node3D
 var yLockLow = -90
 var yLockHigh = 90
@@ -6,6 +7,7 @@ var yLockHigh = 90
 @export var playerCont : playerController
 @export var mouseDetect : mouseCapture
 
+##rotates the camera
 func updateCameraRotation(input: Vector2) -> void: 
 	_rotation.x = input.y
 	_rotation.y = input.x
