@@ -53,7 +53,7 @@ size = Vector3(100, 40, 4)
 [node name="Node3D" type="Node3D"]
 
 [node name="enemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_bipqk")]
-transform = Transform3D(1, 0, 0, 0, 0.99803007, 0.06273863, 0, -0.06273863, 0.99803007, -5.2126465, 3.2868223, -0.43380737)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.213, 3.3119512, -0.434)
 script = ExtResource("2_2ms6y")
 target = NodePath("../player")
 

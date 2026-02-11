@@ -3,9 +3,11 @@ extends CharacterBody3D
 var speed = 5
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var dir = (target.position - position).normalized()
-	rotate_toward(position.x, dir.x, 1.0)
+	var rot = target.global_rotation
+	
+	rotation.y = lerp_angle(rotation.y,rot.y,0.2)
 	velocity = dir * speed
 	
 	move_and_slide()

@@ -21,8 +21,8 @@ func updateCameraRotation(input: Vector2) -> void:
 	
 	_rotation.z = 0.0 
 	
-func updateCameraHeight(delta:) -> void:
+func updateCameraHeight(_delta:) -> void:
 	position.y = clampf(position.y,0, 0)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	updateCameraRotation(mouseDetect.mouseInput)
