@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://b7mvtxt8vt666"]
 
-[ext_resource type="PackedScene" uid="uid://cpgi4mfuufa52" path="res://skene/entities(character and enemies)/weird dude.tscn" id="1_bipqk"]
+[ext_resource type="PackedScene" uid="uid://cpgi4mfuufa52" path="res://skene/entities(character and enemies)/enemy1.tscn" id="1_bipqk"]
 [ext_resource type="PackedScene" uid="uid://maey76qlgkxw" path="res://skene/entities(character and enemies)/BEAN.tscn" id="1_wlvi1"]
 [ext_resource type="Script" uid="uid://c2t7hulhdaccw" path="res://scrips/enemies/weird_dude.gd" id="2_2ms6y"]
 
