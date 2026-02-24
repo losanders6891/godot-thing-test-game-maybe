@@ -1,11 +1,13 @@
 extends Node3D
-var projectile = preload("res://skene/projectiles/pistolbullet_test.tscn")
+@onready var player : playerController = $player
+@export var projectile : PackedScene
+@onready var main = $main
 ##shoots a bullet dealing 30 damage
 func shoot():
-	#TODO: create and instantiate projectile or find out how to do hitscan
-	projectile.instantiate()
-	add_child(projectile)
-
+	#TODO: use move and collide for hitscan and find how to create ray stopping at enemy or wall
+	
+	
+	
 
 
 func _process(_delta: float) -> void:
