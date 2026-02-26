@@ -10,7 +10,7 @@ var movementVelocity : Vector3 = Vector3.ZERO
 ## rotates player
 func update_rotation(inputRotation) -> void:
 	global_transform.basis = Basis.from_euler(inputRotation)
-## start the main physics loop
+# start the main physics loop
 func _physics_process(_delta):
 	#initialize and reset direction
 	if Input.is_action_pressed("noLock"):

@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://maey76qlgkxw"]
+[gd_scene format=3 uid="uid://maey76qlgkxw"]
 
 [ext_resource type="Script" uid="uid://dtsr46dytwpf4" path="res://scrips/player/bean.gd" id="1_lspgp"]
 [ext_resource type="Script" uid="uid://cju2jkp53y2ny" path="res://scrips/player/neck.gd" id="1_woxnr"]
 [ext_resource type="Script" uid="uid://dk6eg3ctf3mya" path="res://scrips/player/mouse_capture.gd" id="3_51gaf"]
+[ext_resource type="Script" uid="uid://c7khnqy2pqfqn" path="res://scrips/player/pistolcode.gd" id="4_fauu6"]
+[ext_resource type="PackedScene" uid="uid://dg7ajlfv6qqke" path="res://models/placeholderPistol.blend" id="4_ub76d"]
+[ext_resource type="PackedScene" uid="uid://31x3ll5i1wo1" path="res://skene/projectiles/pistolbullet_test.tscn" id="5_wp2rj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bu0v1"]
 size = Vector3(1.3046341, 2.130126, 1.2048149)
@@ -39,30 +42,38 @@ bind/8/name = &""
 bind/8/bone = -1
 bind/8/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="player" type="CharacterBody3D"]
+[node name="player" type="CharacterBody3D" unique_id=1569191674]
 script = ExtResource("1_lspgp")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=809038010]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008739114, 1.0889308, 0.06152481)
 shape = SubResource("BoxShape3D_bu0v1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1458409207]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.0102364, 0.99028975, 0.0829174)
 mesh = SubResource("CapsuleMesh_xc0up")
 skin = SubResource("Skin_iwpo4")
 
-[node name="Neck" type="Node3D" parent="." node_paths=PackedStringArray("playerCont", "mouseDetect")]
+[node name="Neck" type="Node3D" parent="." unique_id=303788578 node_paths=PackedStringArray("playerCont", "mouseDetect")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7602038, -0.27880973)
 script = ExtResource("1_woxnr")
 playerCont = NodePath("..")
 mouseDetect = NodePath("../components/mouseCapture")
 
-[node name="Camera3D" type="Camera3D" parent="Neck"]
+[node name="Camera3D" type="Camera3D" parent="Neck" unique_id=1355341911]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0700853)
 current = true
 near = 0.001
 
-[node name="components" type="Node" parent="."]
+[node name="placeholderPistol" parent="Neck" unique_id=1383197012 instance=ExtResource("4_ub76d")]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0.43041658, -0.52237177, -0.6479207)
+script = ExtResource("4_fauu6")
+projectile = ExtResource("5_wp2rj")
 
-[node name="mouseCapture" type="Node" parent="components"]
+[node name="barrel" type="Node3D" parent="Neck/placeholderPistol" unique_id=1577395350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08665633, 0.7312236, 0)
+
+[node name="components" type="Node" parent="." unique_id=960377616]
+
+[node name="mouseCapture" type="Node" parent="components" unique_id=1480776004]
 script = ExtResource("3_51gaf")

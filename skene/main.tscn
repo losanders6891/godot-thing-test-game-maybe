@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://b7mvtxt8vt666"]
+[gd_scene format=3 uid="uid://b7mvtxt8vt666"]
 
-[ext_resource type="PackedScene" uid="uid://cpgi4mfuufa52" path="res://skene/entities(character and enemies)/weird dude.tscn" id="1_bipqk"]
+[ext_resource type="PackedScene" uid="uid://cpgi4mfuufa52" path="res://skene/entities(character and enemies)/enemy1.tscn" id="1_bipqk"]
 [ext_resource type="PackedScene" uid="uid://maey76qlgkxw" path="res://skene/entities(character and enemies)/BEAN.tscn" id="1_wlvi1"]
-[ext_resource type="Script" uid="uid://c2t7hulhdaccw" path="res://skene/entities(character and enemies)/weird_dude.gd" id="2_2ms6y"]
+[ext_resource type="Script" uid="uid://c2t7hulhdaccw" path="res://scrips/enemies/weird_dude.gd" id="2_2ms6y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_top_color = Color(0.23946828, 0.42873153, 0.8093907, 1)
@@ -50,58 +50,58 @@ size = Vector3(100, 40, 4)
 [sub_resource type="BoxMesh" id="BoxMesh_2ms6y"]
 size = Vector3(100, 40, 4)
 
-[node name="Node3D" type="Node3D"]
+[node name="main" type="Node3D" unique_id=196418758]
 
-[node name="enemy" parent="." node_paths=PackedStringArray("target") instance=ExtResource("1_bipqk")]
+[node name="enemy" parent="." unique_id=1282326314 node_paths=PackedStringArray("target") instance=ExtResource("1_bipqk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.213, 3.3119512, -0.434)
 script = ExtResource("2_2ms6y")
 target = NodePath("../player")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=816966404]
 environment = SubResource("Environment_h2yge")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1683399738]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1710482228]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0877949, 2.7692878, 3.1871414)
 custom_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
 mesh = SubResource("BoxMesh_0xm2m")
 skin = SubResource("Skin_h2yge")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=468930535]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.588203, 3.2605665, 2.56472)
 shape = SubResource("BoxShape3D_ig7tw")
 
-[node name="player" parent="." instance=ExtResource("1_wlvi1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32123524, 3.1857367, -8.3737955)
+[node name="player" parent="." unique_id=1508216408 instance=ExtResource("1_wlvi1")]
+transform = Transform3D(-0.9999179, 0, -0.012810269, 0, 1, 0, 0.012810269, 0, -0.9999179, 0.32123524, 3.1857367, -8.3737955)
 
-[node name="solar orbit" type="Marker3D" parent="."]
+[node name="solar orbit" type="Marker3D" parent="." unique_id=1773625034]
 transform = Transform3D(1, 0, 0, 0, -0.771625, 0.636078, 0, -0.636078, -0.771625, 0, 417.386, 469.0434)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="solar orbit"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="solar orbit" unique_id=1124357956]
 transform = Transform3D(1, 0, 0, 0, 0.9999999, -2.9802322e-08, 0, 2.9802322e-08, 0.9999999, 0, 2.5431795, 28.492195)
 light_energy = 0.654
 shadow_enabled = true
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1093069740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.184983, 6.7520657)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=513730036]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0056152344)
 shape = SubResource("BoxShape3D_wlvi1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=1819634469]
 mesh = SubResource("BoxMesh_g1cg7")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=1069088938]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.212654, 58.939056)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=598662824]
 auto_translate_mode = 1
 shape = SubResource("BoxShape3D_bipqk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3" unique_id=1238241536]
 auto_translate_mode = 1
 mesh = SubResource("BoxMesh_2ms6y")
 skeleton = NodePath("../..")
