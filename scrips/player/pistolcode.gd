@@ -1,6 +1,6 @@
 extends Node3D
 @onready var player : playerController = $player
-@export var projectile : PackedScene
+@export var hitscan : PackedScene
 @onready var main = $main
 ##shoots a bullet dealing 30 damage
 func shoot():
