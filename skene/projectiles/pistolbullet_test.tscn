@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://31x3ll5i1wo1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gqaa4"]
+size = Vector3(0.33, 0.125, 0.133)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rgtr6"]
+size = Vector3(0.33007813, 0.12487793, 0.13342285)
+
+[node name="PistolbulletTest" type="CharacterBody3D" unique_id=901242049]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1071935288]
+mesh = SubResource("BoxMesh_gqaa4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=311762941]
+shape = SubResource("BoxShape3D_rgtr6")

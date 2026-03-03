@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cpgi4mfuufa52"]
 
 [ext_resource type="PackedScene" uid="uid://di5st8amtlg77" path="res://models/potentialygood.blend" id="1_ik6pg"]
+[ext_resource type="Script" uid="uid://c2t7hulhdaccw" path="res://scrips/enemies/weird_dude.gd" id="1_qjlcb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_35kme"]
 size = Vector3(2.4670105, 1.9516602, 1)
 
 [node name="enemy" type="CharacterBody3D" unique_id=1444246513]
+script = ExtResource("1_qjlcb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=981033667]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0042877197, 0.95092773, 0)
