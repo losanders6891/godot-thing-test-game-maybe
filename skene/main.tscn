@@ -51,8 +51,9 @@ size = Vector3(100, 40, 4)
 
 [node name="main" type="Node3D" unique_id=196418758]
 
-[node name="enemy" parent="." unique_id=1282326314 instance=ExtResource("1_bipqk")]
+[node name="enemy" parent="." unique_id=1282326314 node_paths=PackedStringArray("target") instance=ExtResource("1_bipqk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.213, 3.3119512, -0.434)
+target = NodePath("../player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=816966404]
 environment = SubResource("Environment_h2yge")

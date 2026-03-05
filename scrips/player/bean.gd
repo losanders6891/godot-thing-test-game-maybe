@@ -6,7 +6,14 @@ var dashspeed = 30
 var acceleration = 0.5
 var deceleration = 0.75
 var movementVelocity : Vector3 = Vector3.ZERO
-
+@onready var aimRay = $Neck/Camera3D/Aim
+##currently just checks if the raycas is colliding and deals damage
+func shoot() -> void:
+	aimRay.force_raycast_update()
+	if aimRay.is_colliding():
+		var target: CharacterBody3D = aimRay.get_collider()
+		if target.has_method("hit"):
+			target.hit(10)
 ## rotates player
 func update_rotation(inputRotation) -> void:
 	global_transform.basis = Basis.from_euler(inputRotation)
@@ -20,7 +27,8 @@ func _physics_process(_delta):
 		velocity.y += jumpspeed
 	if not is_on_floor():
 		velocity.y -= gravity
-		
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
 	
 	#XZ = ground plane
 	var inputDir = Input.get_vector("strafe-left","walk-backward","walk-forward","strafe-right")
@@ -37,4 +45,3 @@ func _physics_process(_delta):
 	velocity = movementVelocity
 	
 	move_and_slide()
-		

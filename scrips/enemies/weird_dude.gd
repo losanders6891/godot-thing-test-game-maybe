@@ -2,15 +2,8 @@ extends CharacterBody3D
 @export var target: CharacterBody3D
 var speed = 5
 @export var health: int = 30
-
-## gets damaged when shot
-func hit(type: int):
-	if type == 0 :
-		health -= 10
-	
-	if health <= 0:
-		queue_free()
-
+func hit(damage: int)-> void:
+	health -= damage
 func _physics_process(_delta: float) -> void:
 	var dir = (target.position - position).normalized()
 	var rot = target.global_rotation
