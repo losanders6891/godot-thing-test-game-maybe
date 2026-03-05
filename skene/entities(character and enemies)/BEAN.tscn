@@ -40,47 +40,6 @@ bind/8/name = &""
 bind/8/bone = -1
 bind/8/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[sub_resource type="GDScript" id="GDScript_ub76d"]
-script/source = "extends Node3D
-@onready var player : playerController = $player
-@export var hitscan : RayCast3D
-@onready var main = $main
-##shoots a bullet dealing 30 damage
-func shoot():
-	#TODO: use move and collide for hitscan and find how to create ray stopping at enemy or wall
-	
-	
-
-
-func _process(_delta: float) -> void:
-	if (Input.is_action_just_pressed(\"shoot\")):
-		shoot()
-		
-	
-	
-"
-
-[sub_resource type="BoxMesh" id="BoxMesh_gqaa4"]
-size = Vector3(0.33, 0.125, 0.133)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_rgtr6"]
-size = Vector3(0.33007813, 0.12487793, 0.13342285)
-
-[sub_resource type="PackedScene" id="PackedScene_fauu6"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("PistolbulletTest", "CharacterBody3D", "transform", "MeshInstance3D", "MeshInstance3D", "mesh", "CollisionShape3D", "CollisionShape3D", "shape"),
-"node_count": 3,
-"node_ids": PackedInt32Array(901242049, 1071935288, 311762941),
-"node_paths": [NodePath("."), NodePath(".")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0, 1073741824, 0, 4, 3, -1, 1, 5, 1, 0, 1073741825, 0, 7, 6, -1, 1, 8, 2, 0),
-"variants": [Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0), SubResource("BoxMesh_gqaa4"), SubResource("BoxShape3D_rgtr6")],
-"version": 3
-}
-
 [node name="Player" type="CharacterBody3D" unique_id=1569191674]
 script = ExtResource("1_lspgp")
 
@@ -109,8 +68,6 @@ target_position = Vector3(0, 0, -100)
 
 [node name="placeholderPistol" parent="Neck" unique_id=1383197012 instance=ExtResource("4_ub76d")]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0.43041658, -0.52237177, -0.6479207)
-script = SubResource("GDScript_ub76d")
-projectile = SubResource("PackedScene_fauu6")
 
 [node name="barrel" type="Node3D" parent="Neck/placeholderPistol" unique_id=1577395350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08665633, 0.7312236, 0)

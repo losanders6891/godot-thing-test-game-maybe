@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name enemy1 extends CharacterBody3D
 @export var target: CharacterBody3D
 var speed = 5
 @export var health: int = 30

@@ -7,13 +7,21 @@ var acceleration = 0.5
 var deceleration = 0.75
 var movementVelocity : Vector3 = Vector3.ZERO
 @onready var aimRay = $Neck/Camera3D/Aim
+var pistolParticle = preload("res://particles/placeholder_particles.tscn")
 ##currently just checks if the raycas is colliding and deals damage
 func shoot() -> void:
 	aimRay.force_raycast_update()
 	if aimRay.is_colliding():
-		var target: CharacterBody3D = aimRay.get_collider()
-		if target.has_method("hit"):
-			target.hit(10)
+		var collision = aimRay.get_collision_point()
+		var effect : GPUParticles3D = pistolParticle.instantiate() 
+		effect.position = collision
+		effect.look_at(position)
+		add_child(effect)
+		var target: Object = aimRay.get_collider()
+		if target.is_class("CharacterBody3D"):
+			if target.has_method("hit"):
+				target.hit(10)
+		
 ## rotates player
 func update_rotation(inputRotation) -> void:
 	global_transform.basis = Basis.from_euler(inputRotation)
