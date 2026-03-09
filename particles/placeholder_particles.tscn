@@ -22,8 +22,9 @@ collision_bounce = 0.0
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="GPUParticles3D" type="GPUParticles3D" unique_id=1853707912]
+layers = 15
 emitting = false
-amount = 1000
+amount = 10000
 amount_ratio = 0.885
 lifetime = 0.28
 interp_to_end = 0.3
@@ -31,6 +32,7 @@ one_shot = true
 speed_scale = 9.0
 explosiveness = 1.0
 randomness = 0.48
+collision_base_size = 0.1
 trail_lifetime = 3.4
 process_material = SubResource("ParticleProcessMaterial_lomp7")
 draw_pass_1 = SubResource("BoxMesh_5kv16")

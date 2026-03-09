@@ -15,8 +15,9 @@ func shoot() -> void:
 		var collision = aimRay.get_collision_point()
 		var effect : GPUParticles3D = pistolParticle.instantiate() 
 		effect.position = collision
-		effect.look_at(position)
+		effect.look_at_from_position(effect.position,$Neck.position)
 		add_child(effect)
+		effect.restart()
 		var target: Object = aimRay.get_collider()
 		if target.is_class("CharacterBody3D"):
 			if target.has_method("hit"):
