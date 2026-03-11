@@ -2,22 +2,35 @@ class_name playerController extends CharacterBody3D
 var movespeed = 12
 var gravity = 0.8
 var jumpspeed = 20 
-var dashspeed = 30
+var dashspeed = 120
+var dashtime = 0.1
 var acceleration = 0.5
 var deceleration = 0.75
 var movementVelocity : Vector3 = Vector3.ZERO
 @onready var aimRay = $Neck/Camera3D/Aim
+@onready var dashTimer: Timer = $Components/DashTime
 var pistolParticle = preload("res://particles/placeholder_particles.tscn")
-##currently just checks if the raycas is colliding and deals damage
+
+func dash() -> void:
+	if  dashTimer.is_stopped():
+		movespeed = dashspeed
+		acceleration = 0.95
+		dashTimer.start()
+
+##currently just checks if the raycast is colliding and deals damage
+#particle efffects not implemented
 func shoot() -> void:
 	aimRay.force_raycast_update()
 	if aimRay.is_colliding():
 		var collision = aimRay.get_collision_point()
 		var effect : GPUParticles3D = pistolParticle.instantiate() 
 		effect.position = collision
-		effect.look_at_from_position(effect.position,$Neck.position)
+		#TODO: make particle effects visible consistently
+		effect.look_at($Neck.position)
 		add_child(effect)
 		effect.restart()
+		effect.queue_free()
+		remove_child(effect)
 		var target: Object = aimRay.get_collider()
 		if target.is_class("CharacterBody3D"):
 			if target.has_method("hit"):
@@ -38,6 +51,15 @@ func _physics_process(_delta):
 		velocity.y -= gravity
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
+	
+	
+	if Input.is_action_just_pressed("dash"):
+		dash()
+	#stop dashing after dashtime seconds
+	if (dashTimer.time_left >= dashtime):
+		movespeed = 12
+		acceleration = 0.5
+		
 	
 	#XZ = ground plane
 	var inputDir = Input.get_vector("strafe-left","walk-backward","walk-forward","strafe-right")
