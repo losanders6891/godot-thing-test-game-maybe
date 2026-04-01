@@ -58,6 +58,20 @@ script = ExtResource("1_woxnr")
 playerCont = NodePath("..")
 mouseDetect = NodePath("../Components/MouseCapture")
 
+[node name="CenterContainer" type="CenterContainer" parent="Neck" unique_id=752140287]
+anchors_preset = -1
+anchor_left = -0.030000001
+anchor_top = -0.033
+anchor_right = 0.047
+anchor_bottom = 0.062000003
+offset_left = 0.5600014
+offset_top = 0.38400078
+offset_right = -0.14399719
+offset_bottom = -0.1760025
+
+[node name="TextureRect" type="TextureRect" parent="Neck/CenterContainer" unique_id=1548596413]
+layout_mode = 2
+
 [node name="Camera3D" type="Camera3D" parent="Neck" unique_id=1355341911]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0700853)
 current = true
