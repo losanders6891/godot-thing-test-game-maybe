@@ -2,7 +2,7 @@ class_name playerController extends CharacterBody3D
 var movespeed = 12
 var gravity = 0.8
 var jumpspeed = 20 
-var dashspeed = 120
+var dashspeed = 18
 var dashtime = 0.1
 var acceleration = 0.5
 var deceleration = 0.75
@@ -11,12 +11,9 @@ var movementVelocity : Vector3 = Vector3.ZERO
 @onready var dashTimer: Timer = $Components/DashTime
 var pistolParticle = preload("res://particles/placeholder_particles.tscn")
 
-func dash() -> void:
-	if  dashTimer.is_stopped():
+func sprint() -> void:
 		movespeed = dashspeed
-		acceleration = 0.95
-		dashTimer.start()
-
+		acceleration = 0.9
 ##currently just checks if the raycast is colliding and deals damage
 #particle efffects not implemented
 func shoot() -> void:
@@ -54,11 +51,9 @@ func _physics_process(_delta):
 	
 	
 	if Input.is_action_just_pressed("dash"):
-		dash()
-	#stop dashing after dashtime seconds
-	if (dashTimer.time_left >= dashtime):
+		sprint()
+	else:
 		movespeed = 12
-		acceleration = 0.5
 		
 	
 	#XZ = ground plane
