@@ -6,6 +6,8 @@ class_name mouseCapture extends Node
 var captureMouse : bool
 var mouseInput : Vector2
 
+# should be working
+
 # runs if an input is detected doesnt get used by Input
 func _unhandled_input(event: InputEvent) -> void:
 	#recaptures mouse if it clicks on the window.
@@ -16,7 +18,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if captureMouse:
 		mouseInput.x += -event.screen_relative.x * mouseSensitivity
 		mouseInput.y += -event.screen_relative.y * mouseSensitivity
+		print(mouseInput.x)
+		print(mouseInput.y)
 	#initialy sets mouse mode
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	#prevents mouse input from accumulating
+	

@@ -40,7 +40,7 @@ bind/8/name = &""
 bind/8/bone = -1
 bind/8/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ub76d"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_ub76d"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1569191674]
 script = ExtResource("1_lspgp")
@@ -83,24 +83,43 @@ script = ExtResource("3_51gaf")
 one_shot = true
 
 [node name="HUD" type="Control" parent="." unique_id=975967919]
+modulate = Color(1, 1, 1, 0.8862745)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_left = 0.47300002
+anchor_top = 0.437
+anchor_right = 0.47300002
+anchor_bottom = 0.437
+offset_left = -24.895996
+offset_top = -25.175995
+offset_right = 25.104004
+offset_bottom = 24.824005
 
-[node name="Crosshair" type="TextureRect" parent="HUD" unique_id=792605562]
+[node name="CenterContainer" type="CenterContainer" parent="HUD" unique_id=258756974]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = SubResource("CompressedTexture2D_ub76d")
+offset_left = 4.0
+offset_top = 7.0
+offset_right = 44.0
+offset_bottom = 47.0
 
-[node name="Healthbar" type="TextureProgressBar" parent="HUD" unique_id=482594062]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-tint_over = Color(1, 0, 0, 1)
+[node name="BugBox(don\'t-trust)" type="TextureRect" parent="HUD/CenterContainer" unique_id=1392863713]
+layout_mode = 2
 
-[node name="StaminaBar" type="TextureProgressBar" parent="HUD" unique_id=338278908]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasGroup" type="CanvasGroup" parent="HUD/CenterContainer/BugBox(don\'t-trust)" unique_id=79061723]
+clip_children = 1
+
+[node name="Sprite2D4" type="Sprite2D" parent="HUD/CenterContainer/BugBox(don\'t-trust)/CanvasGroup" unique_id=1984588652]
+unique_name_in_owner = true
+position = Vector2(4.5, 0)
+scale = Vector2(6, 3)
+texture = SubResource("CanvasTexture_ub76d")
+
+[node name="Sprite2D5" type="Sprite2D" parent="HUD/CenterContainer/BugBox(don\'t-trust)/CanvasGroup" unique_id=1502446185]
+unique_name_in_owner = true
+position = Vector2(-4.5, 0)
+scale = Vector2(6, 3)
+texture = SubResource("CanvasTexture_ub76d")
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/CenterContainer/BugBox(don\'t-trust)/CanvasGroup" unique_id=1302247263]
+unique_name_in_owner = true
+scale = Vector2(3, 15)
+texture = SubResource("CanvasTexture_ub76d")

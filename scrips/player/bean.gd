@@ -1,5 +1,5 @@
 class_name playerController extends CharacterBody3D
-var movespeed = 12
+var movespeed = 12 
 var gravity = 0.8
 var jumpspeed = 20 
 var dashspeed = 18
@@ -7,23 +7,25 @@ var dashtime = 0.1
 var acceleration = 0.5
 var deceleration = 0.75
 var movementVelocity : Vector3 = Vector3.ZERO
-@onready var aimRay = $Neck/Camera3D/Aim
-@onready var dashTimer: Timer = $Components/DashTime
-var pistolParticle = preload("res://particles/placeholder_particles.tscn")
+@onready var aimRay = $Neck/Camera3D/Aim # maybe export this so it can be changed?
+@onready var dashTimer: Timer = $Components/DashTime #bad code stuff, remove when code is debugged
+var pistolParticle = preload("res://particles/placeholder_particles.tscn") # no idea if this is necessary
 
-func sprint() -> void:
-		movespeed = dashspeed
-		acceleration = 0.9
+#func sprint() -> void:
+	#TODO: implement sprinting
+		#movespeed = dashspeed
+		#acceleration = 0.9
+
 ##currently just checks if the raycast is colliding and deals damage
-#particle efffects not implemented
+#particle efffects in progress
 func shoot() -> void:
 	aimRay.force_raycast_update()
 	if aimRay.is_colliding():
 		var collision = aimRay.get_collision_point()
 		var effect : GPUParticles3D = pistolParticle.instantiate() 
 		effect.position = collision
-		#TODO: make particle effects visible consistently
-		effect.look_at($Neck.position)
+		#TODO: make particle effects visible consistently.
+		effect.look_at_from_position(effect.position, $Neck.position)
 		add_child(effect)
 		effect.restart()
 		effect.queue_free()
@@ -34,6 +36,8 @@ func shoot() -> void:
 				target.hit(10)
 		
 ## rotates player
+##TODO: figure out what the hell makes the crosshair work now and make sure it stays working
+
 func update_rotation(inputRotation) -> void:
 	global_transform.basis = Basis.from_euler(inputRotation)
 # start the main physics loop
@@ -50,10 +54,9 @@ func _physics_process(_delta):
 		shoot()
 	
 	
-	if Input.is_action_just_pressed("dash"):
-		sprint()
-	else:
-		movespeed = 12
+	#if Input.is_action_just_pressed("dash"):
+		#sprint()
+	
 		
 	
 	#XZ = ground plane
