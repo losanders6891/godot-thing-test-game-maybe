@@ -5,8 +5,9 @@ var speed = 5
 func hit(damage: int)-> void:
 	health -= damage
 func _physics_process(_delta: float) -> void:
-	var dir = (target.position - position).normalized()
+	var dirToTarget = (target.position - position).normalized()
 	var rot = target.global_rotation
+	var dir = Vector3(dirToTarget.x,0.0,dirToTarget.z)
 	
 	if health <= 0:
 		queue_free()
@@ -15,3 +16,4 @@ func _physics_process(_delta: float) -> void:
 	velocity = dir * speed
 	
 	move_and_slide()
+	

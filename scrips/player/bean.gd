@@ -2,19 +2,14 @@ class_name playerController extends CharacterBody3D
 var movespeed = 12 
 var gravity = 0.8
 var jumpspeed = 20 
-var dashspeed = 18
-var dashtime = 0.1
 var acceleration = 0.5
 var deceleration = 0.75
 var movementVelocity : Vector3 = Vector3.ZERO
 @onready var aimRay = $Neck/Camera3D/Aim # maybe export this so it can be changed?
 @onready var dashTimer: Timer = $Components/DashTime #bad code stuff, remove when code is debugged
+@onready var dashCD: Timer = $Components/DashCD
 var pistolParticle = preload("res://particles/placeholder_particles.tscn") # no idea if this is necessary
 
-#func sprint() -> void:
-	#TODO: implement sprinting
-		#movespeed = dashspeed
-		#acceleration = 0.9
 
 ##currently just checks if the raycast is colliding and deals damage
 #particle efffects in progress
@@ -35,8 +30,6 @@ func shoot() -> void:
 			if target.has_method("hit"):
 				target.hit(10)
 		
-## rotates player
-##TODO: figure out what the hell makes the crosshair work now and make sure it stays working
 
 func update_rotation(inputRotation) -> void:
 	global_transform.basis = Basis.from_euler(inputRotation)
@@ -54,15 +47,21 @@ func _physics_process(_delta):
 		shoot()
 	
 	
-	#if Input.is_action_just_pressed("dash"):
-		#sprint()
-	
-		
 	
 	#XZ = ground plane
 	var inputDir = Input.get_vector("strafe-left","walk-backward","walk-forward","strafe-right")
 	var currentVelocity = Vector2(movementVelocity.x, movementVelocity.z)
 	var direction = (transform.basis * Vector3(inputDir.x,0,inputDir.y)).normalized()
+	if direction:
+		if Input.is_action_just_pressed("dash") && dashCD.is_stopped():
+			dashTimer.start()
+			dashCD.start()
+		if !dashTimer.is_stopped():
+			movespeed = 50
+			acceleration = 0.8
+		else:
+			movespeed = move_toward(movespeed, 12, 4)
+			acceleration = 0.5
 	
 	if direction:
 		currentVelocity = lerp(currentVelocity,Vector2(direction.x,direction.z) * movespeed,acceleration)
