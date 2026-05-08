@@ -9,7 +9,7 @@ var movementVelocity : Vector3 = Vector3.ZERO
 @onready var dashTimer: Timer = $Components/DashTime #bad code stuff, remove when code is debugged
 @onready var dashCD: Timer = $Components/DashCD
 var pistolParticle = preload("res://particles/placeholder_particles.tscn") # no idea if this is necessary
-
+var dashDir: Vector3
 
 ##currently just checks if the raycast is colliding and deals damage
 #particle efffects in progress
@@ -52,16 +52,19 @@ func _physics_process(_delta):
 	var inputDir = Input.get_vector("strafe-left","walk-backward","walk-forward","strafe-right")
 	var currentVelocity = Vector2(movementVelocity.x, movementVelocity.z)
 	var direction = (transform.basis * Vector3(inputDir.x,0,inputDir.y)).normalized()
+	#TODO: remove magic numbers here
 	if direction:
 		if Input.is_action_just_pressed("dash") && dashCD.is_stopped():
 			dashTimer.start()
+			dashDir = direction
 			dashCD.start()
-		if !dashTimer.is_stopped():
+	if !dashTimer.is_stopped():
 			movespeed = 50
+			direction = dashDir
 			acceleration = 0.8
-		else:
-			movespeed = move_toward(movespeed, 12, 4)
-			acceleration = 0.5
+	else:
+		movespeed = move_toward(movespeed, 12, 4)
+		acceleration = 0.5
 	
 	if direction:
 		currentVelocity = lerp(currentVelocity,Vector2(direction.x,direction.z) * movespeed,acceleration)

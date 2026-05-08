@@ -21,6 +21,8 @@ config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=2304
+window/size/viewport_height=1296
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
@@ -79,3 +81,10 @@ shoot={
 3d_physics/layer_1="player"
 3d_physics/layer_2="enemies"
 3d_physics/layer_3="environment"
+
+[rendering]
+
+environment/ssao/quality=3
+environment/ssil/quality=3
+viewport/hdr_2d=true
+anti_aliasing/quality/msaa_3d=1

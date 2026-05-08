@@ -88,37 +88,44 @@ one_shot = true
 wait_time = 0.215
 one_shot = true
 
-[node name="CenterContainer2" type="CenterContainer" parent="." unique_id=1806418807]
+[node name="HUD" type="Control" parent="." unique_id=975967919]
+modulate = Color(1, 1, 1, 0.8862745)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD" unique_id=1806418807]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HUD" type="Control" parent="CenterContainer2" unique_id=975967919]
-modulate = Color(1, 1, 1, 0.8862745)
+[node name="BugBox(don\'t-trust)" type="TextureRect" parent="HUD/CenterContainer" unique_id=1392863713]
 layout_mode = 2
 
-[node name="BugBox(don\'t-trust)" type="TextureRect" parent="CenterContainer2/HUD" unique_id=1392863713]
-layout_mode = 0
-
-[node name="CanvasGroup" type="CanvasGroup" parent="CenterContainer2/HUD/BugBox(don\'t-trust)" unique_id=79061723]
+[node name="CanvasGroup" type="CanvasGroup" parent="HUD/CenterContainer/BugBox(don\'t-trust)" unique_id=79061723]
 clip_children = 1
 scale = Vector2(1.2, 1.2)
 
-[node name="Sprite2D4" type="Sprite2D" parent="CenterContainer2/HUD/BugBox(don\'t-trust)/CanvasGroup" unique_id=1984588652]
+[node name="Sprite2D4" type="Sprite2D" parent="HUD/CenterContainer/BugBox(don\'t-trust)/CanvasGroup" unique_id=1984588652]
 unique_name_in_owner = true
 position = Vector2(4.5, 0)
 scale = Vector2(6, 3)
 texture = SubResource("CanvasTexture_ub76d")
 
-[node name="Sprite2D5" type="Sprite2D" parent="CenterContainer2/HUD/BugBox(don\'t-trust)/CanvasGroup" unique_id=1502446185]
+[node name="Sprite2D5" type="Sprite2D" parent="HUD/CenterContainer/BugBox(don\'t-trust)/CanvasGroup" unique_id=1502446185]
 unique_name_in_owner = true
 position = Vector2(-4.5, 0)
 scale = Vector2(6, 3)
 texture = SubResource("CanvasTexture_ub76d")
 
-[node name="Sprite2D" type="Sprite2D" parent="CenterContainer2/HUD/BugBox(don\'t-trust)/CanvasGroup" unique_id=1302247263]
+[node name="Sprite2D" type="Sprite2D" parent="HUD/CenterContainer/BugBox(don\'t-trust)/CanvasGroup" unique_id=1302247263]
 unique_name_in_owner = true
 scale = Vector2(3, 15)
 texture = SubResource("CanvasTexture_ub76d")
