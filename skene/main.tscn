@@ -32,7 +32,6 @@ size = Vector3(2000, 1, 2000)
 size = Vector3(2000, 1, 2000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wlvi1"]
-custom_solver_bias = 0.343
 margin = 1.183
 size = Vector3(4, 2, 4.011)
 
@@ -52,7 +51,7 @@ size = Vector3(100, 40, 4)
 [node name="main" type="Node3D" unique_id=196418758]
 
 [node name="enemy" parent="." unique_id=1282326314 node_paths=PackedStringArray("target") instance=ExtResource("1_bipqk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.213, 3.3119512, -0.434)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.213, 3.3119512, 18.749697)
 target = NodePath("../player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=816966404]
@@ -94,6 +93,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0056152344)
 shape = SubResource("BoxShape3D_wlvi1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=1819634469]
+mesh = SubResource("BoxMesh_g1cg7")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=43274512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5500584, 26.512018)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4" unique_id=2119193931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0056152344)
+shape = SubResource("BoxShape3D_wlvi1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4" unique_id=1247247052]
 mesh = SubResource("BoxMesh_g1cg7")
 skeleton = NodePath("../..")
 

@@ -1,7 +1,11 @@
 class_name enemy1 extends CharacterBody3D
 @export var target: CharacterBody3D
 var speed = 5
+var jumpSpeed = 10
+var gravity = 0.8
 @export var health: int = 30
+func jump():
+	velocity.y += jumpSpeed
 func hit(damage: int)-> void:
 	health -= damage
 func _physics_process(_delta: float) -> void:
@@ -13,7 +17,11 @@ func _physics_process(_delta: float) -> void:
 		queue_free()
 	
 	rotation.y = lerp_angle(rotation.y,rot.y,0.2)
-	velocity = dir * speed
+	var movementVelocity = dir * speed
+	velocity = Vector3(movementVelocity.x,velocity.y,movementVelocity.z)
+	#TODO: add jump check and jump
+	if not is_on_floor():
+		velocity.y -= gravity
 	
 	move_and_slide()
 	

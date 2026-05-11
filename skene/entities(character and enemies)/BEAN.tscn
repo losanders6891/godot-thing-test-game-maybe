@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dg7ajlfv6qqke" path="res://models/placeholderPistol.blend" id="4_ub76d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bu0v1"]
-size = Vector3(1.3046341, 2.130126, 1.2048149)
+size = Vector3(1.3046341, 2.130126, 1.7554157)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xc0up"]
 
@@ -47,7 +47,7 @@ collision_mask = 2
 script = ExtResource("1_lspgp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=809038010]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008739114, 1.0889308, 0.06152481)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008739114, 1.0889308, -0.16283935)
 shape = SubResource("BoxShape3D_bu0v1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1458409207]
@@ -69,6 +69,7 @@ near = 0.001
 [node name="Aim" type="RayCast3D" parent="Neck/Camera3D" unique_id=1167191140]
 target_position = Vector3(0, 0, -100)
 collision_mask = 6
+hit_from_inside = true
 
 [node name="placeholderPistol" parent="Neck" unique_id=1383197012 instance=ExtResource("4_ub76d")]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0.43041658, -0.52237177, -0.6479207)

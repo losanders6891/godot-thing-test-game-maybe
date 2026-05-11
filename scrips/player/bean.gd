@@ -63,7 +63,11 @@ func _physics_process(_delta):
 			direction = dashDir
 			acceleration = 0.8
 	else:
-		movespeed = move_toward(movespeed, 12, 4)
+		movespeed = move_toward(movespeed, 12, 8)
+		if movespeed > 12:
+			deceleration = 0.95
+		else: 
+			deceleration = 0.75
 		acceleration = 0.5
 	
 	if direction:
