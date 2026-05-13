@@ -3,7 +3,7 @@ var movespeed = 12
 var gravity = 0.8
 var jumpspeed = 20 
 var acceleration = 0.5
-var deceleration = 0.75
+var deceleration = 0.8
 var movementVelocity : Vector3 = Vector3.ZERO
 @onready var aimRay = $Neck/Camera3D/Aim # maybe export this so it can be changed?
 @onready var dashTimer: Timer = $Components/DashTime #bad code stuff, remove when code is debugged
@@ -67,7 +67,7 @@ func _physics_process(_delta):
 		if movespeed > 12:
 			deceleration = 0.95
 		else: 
-			deceleration = 0.75
+			deceleration = 0.8
 		acceleration = 0.5
 	
 	if direction:

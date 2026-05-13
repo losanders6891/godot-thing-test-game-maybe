@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://di5st8amtlg77" path="res://models/potentialygood.blend" id="1_ik6pg"]
 [ext_resource type="Script" uid="uid://c2t7hulhdaccw" path="res://scrips/enemies/weird_dude.gd" id="1_qjlcb"]
+[ext_resource type="Script" uid="uid://c330f703ppps7" path="res://skene/entities(character and enemies)/node_3d.gd" id="3_kjurf"]
+[ext_resource type="Script" uid="uid://cyx3ikvct00ar" path="res://skene/entities(character and enemies)/object_detect.gd" id="4_ngj6e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_35kme"]
 size = Vector3(0.5559454, 1.3648987, 0.47210693)
@@ -24,6 +26,20 @@ shape = SubResource("BoxShape3D_35kme")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006652832, 1.5953188, -0.016723633)
 shape = SubResource("BoxShape3D_qjlcb")
 
-[node name="objectDetect?" type="RayCast3D" parent="." unique_id=630447320]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.509073, 0)
+[node name="jumpable" type="RayCast3D" parent="." unique_id=730406618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
 target_position = Vector3(0, 0, -100)
+
+[node name="pathScanner" type="Node3D" parent="." unique_id=850437212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1792888, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="pathScanner" unique_id=1403989847]
+target_position = Vector3(0, 0, -100)
+
+[node name="thing" type="Node3D" parent="." unique_id=960601881]
+script = ExtResource("3_kjurf")
+
+[node name="objectDetect?" type="RayCast3D" parent="thing" unique_id=630447320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2293104, 0)
+target_position = Vector3(0, 0, -100)
+script = ExtResource("4_ngj6e")
