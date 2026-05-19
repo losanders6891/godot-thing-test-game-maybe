@@ -20,8 +20,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		mouseInput.x += -event.screen_relative.x * mouseSensitivity
 		mouseInput.y += -event.screen_relative.y * mouseSensitivity
 		mouseInput.y = clamp(mouseInput.y,deg_to_rad(yLockLow),deg_to_rad(yLockHigh))
-		print(mouseInput.x)
-		print(mouseInput.y)
 	#initialy sets mouse mode
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
