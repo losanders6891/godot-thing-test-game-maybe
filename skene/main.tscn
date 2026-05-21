@@ -33,14 +33,22 @@ size = Vector3(2000, 1, 2000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wlvi1"]
 margin = 1.183
-size = Vector3(4, 2, 4.011)
+size = Vector3(4, 3, 4.011)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bipqk"]
 albedo_color = Color(0.57161516, 0.7244779, 0.81916684, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_g1cg7"]
 material = SubResource("StandardMaterial3D_bipqk")
-size = Vector3(4, 2, 4)
+size = Vector3(4, 3, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ms6y"]
+margin = 1.183
+size = Vector3(4, 1, 4.011)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iwf3o"]
+material = SubResource("StandardMaterial3D_bipqk")
+size = Vector3(4, 1, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bipqk"]
 size = Vector3(100, 40, 4)
@@ -83,42 +91,71 @@ transform = Transform3D(1, 0, 0, 0, 0.9999999, -2.9802322e-08, 0, 2.9802322e-08,
 light_energy = 0.654
 shadow_enabled = true
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1093069740]
+[node name="block" type="StaticBody3D" parent="." unique_id=1093069740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.184983, 6.7520657)
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=513730036]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0056152344)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block" unique_id=513730036]
 shape = SubResource("BoxShape3D_wlvi1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=1819634469]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="block" unique_id=1819634469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08754873, 0)
 mesh = SubResource("BoxMesh_g1cg7")
 skeleton = NodePath("../..")
 
-[node name="StaticBody3D4" type="StaticBody3D" parent="." unique_id=43274512]
+[node name="floatingBlock" type="StaticBody3D" parent="." unique_id=43274512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5500584, 26.512018)
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4" unique_id=2119193931]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floatingBlock" unique_id=2119193931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0056152344)
+shape = SubResource("BoxShape3D_2ms6y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floatingBlock" unique_id=1247247052]
+mesh = SubResource("BoxMesh_iwf3o")
+skeleton = NodePath("../..")
+
+[node name="wierd pillar" type="Node3D" parent="." unique_id=1259317626]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.474606, 3.9205756, 0)
+
+[node name="top" type="StaticBody3D" parent="wierd pillar" unique_id=221473809]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 4.0011826, 0)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wierd pillar/top" unique_id=1822737427]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0056152344)
 shape = SubResource("BoxShape3D_wlvi1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4" unique_id=1247247052]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wierd pillar/top" unique_id=1113870039]
 mesh = SubResource("BoxMesh_g1cg7")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=1069088938]
+[node name="bottom" type="StaticBody3D" parent="wierd pillar" unique_id=1072814418]
+disable_mode = 1
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wierd pillar/bottom" unique_id=648074862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0056152344)
+shape = SubResource("BoxShape3D_2ms6y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wierd pillar/bottom" unique_id=1915505707]
+mesh = SubResource("BoxMesh_iwf3o")
+skeleton = NodePath("../../..")
+
+[node name="wall" type="StaticBody3D" parent="." unique_id=1069088938]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.212654, 58.939056)
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=598662824]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall" unique_id=598662824]
 auto_translate_mode = 1
 shape = SubResource("BoxShape3D_bipqk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3" unique_id=1238241536]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall" unique_id=1238241536]
 auto_translate_mode = 1
 mesh = SubResource("BoxMesh_2ms6y")
 skeleton = NodePath("../..")

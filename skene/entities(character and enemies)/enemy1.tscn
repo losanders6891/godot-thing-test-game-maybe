@@ -41,7 +41,7 @@ collision_mask = 4
 script = ExtResource("4_ngj6e")
 
 [node name="jumpable" type="RayCast3D" parent="pathScanner" unique_id=730406618]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 target_position = Vector3(0, 0, -1)
 collision_mask = 4
 hit_from_inside = true
@@ -53,7 +53,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.046227694, 0)
 script = ExtResource("3_kjurf")
 
 [node name="objectDetect?" type="RayCast3D" parent="thing" unique_id=630447320]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2293104, 0)
-target_position = Vector3(0, 0, -100)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+target_position = Vector3(0, 0, -5)
 collision_mask = 4
 script = ExtResource("4_ngj6e")
