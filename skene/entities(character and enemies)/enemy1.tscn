@@ -23,6 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004960537, 0.657547, -0.01
 shape = SubResource("BoxShape3D_35kme")
 
 [node name="potentialygood" parent="." unique_id=1593328730 instance=ExtResource("1_ik6pg")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Head" type="CollisionShape3D" parent="." unique_id=758313614]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006652832, 1.5953188, -0.016723633)
@@ -36,13 +37,13 @@ jumpable = NodePath("jumpable")
 
 [node name="pathcheck" type="RayCast3D" parent="pathScanner" unique_id=1403989847]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09797573, 0)
-target_position = Vector3(0, 0, -100)
+target_position = Vector3(0, 0, 100)
 collision_mask = 4
 script = ExtResource("4_ngj6e")
 
 [node name="jumpable" type="RayCast3D" parent="pathScanner" unique_id=730406618]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-target_position = Vector3(0, 0, -1)
+target_position = Vector3(0, 0, 1)
 collision_mask = 4
 hit_from_inside = true
 collide_with_areas = true
@@ -54,6 +55,8 @@ script = ExtResource("3_kjurf")
 
 [node name="objectDetect?" type="RayCast3D" parent="thing" unique_id=630447320]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-target_position = Vector3(0, 0, -5)
+target_position = Vector3(0, 0, 1)
 collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
 script = ExtResource("4_ngj6e")

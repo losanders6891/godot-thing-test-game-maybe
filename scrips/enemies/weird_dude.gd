@@ -27,25 +27,25 @@ func _physics_process(_delta: float) -> void:
 	
 	
 	var isObstructed = detector.checkForObstruction()
-	#always true
 	if  isObstructed:
-		print(isObstructed)
-		var tar = detector.get_collision_point()
-		var Tar2D = Vector2(tar.x,tar.z)
-		#never true
+		
+		
 		if!jumpable.jumpCheck():
-			print("1: " + dir)
-			dir = pathDetect.findRoute(dir)
-			print("2: " + dir)
-			scanner.rotation.y = rot.y
-			isObstructed = detector.checkForObstruction()
+			dir = Vector3(0.0, 0.0, 1.0)
 		#mostly working
-		if jumpable.jumpCheck() && Tar2D.distance_to(Vector2(position.x,position.z)) < 2: 
+		# has to be facing object
+		#rot.y = 
+		if jumpable.jumpCheck(): 
 			if is_on_floor():
 				jump()
 	else:
-		rot = target.global_rotation
-	rotation.y = lerp_angle(rotation.y,rot.y,0.4)
+		#objectively wrong but i dont know how to fix
+		#rot.y += dir.angle_to(target.position): add to model as script?
+		var pos2D = Vector3(position.x,0.0,position.z)
+		rot.y = pos2D.angle_to(Vector3(target.position.x,0.0,target.position.z))
+	
+	#still wrong
+	rotate_y(rot.y)
 	var movementVelocity = dir * speed
 	velocity = Vector3(movementVelocity.x,velocity.y,movementVelocity.z)
 	

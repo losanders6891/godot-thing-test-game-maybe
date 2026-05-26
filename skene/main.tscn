@@ -33,7 +33,7 @@ size = Vector3(2000, 1, 2000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wlvi1"]
 margin = 1.183
-size = Vector3(4, 3, 4.011)
+size = Vector3(4, 6, 4.011)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bipqk"]
 albedo_color = Color(0.57161516, 0.7244779, 0.81916684, 1)
@@ -62,20 +62,24 @@ size = Vector3(100, 40, 4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.213, 3.3119512, 18.749697)
 target = NodePath("../player")
 
+[node name="enemy2" parent="." unique_id=1444246513 node_paths=PackedStringArray("target") instance=ExtResource("1_bipqk")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 10.920843, 3.3119512, 9.467177)
+target = NodePath("../player")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=816966404]
 environment = SubResource("Environment_h2yge")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1683399738]
+[node name="ground" type="StaticBody3D" parent="." unique_id=1683399738]
 collision_layer = 4
 collision_mask = 0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1710482228]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground" unique_id=1710482228]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0877949, 2.7692878, 3.1871414)
 custom_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
 mesh = SubResource("BoxMesh_0xm2m")
 skin = SubResource("Skin_h2yge")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=468930535]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground" unique_id=468930535]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.588203, 3.2605665, 2.56472)
 shape = SubResource("BoxShape3D_ig7tw")
 
@@ -101,6 +105,19 @@ shape = SubResource("BoxShape3D_wlvi1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="block" unique_id=1819634469]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08754873, 0)
+mesh = SubResource("BoxMesh_g1cg7")
+skeleton = NodePath("../..")
+
+[node name="block2" type="StaticBody3D" parent="." unique_id=1802307509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.393452, 6.1429715, 6.7520657)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block2" unique_id=515170572]
+shape = SubResource("BoxShape3D_wlvi1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="block2" unique_id=122431800]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_g1cg7")
 skeleton = NodePath("../..")
 

@@ -8,6 +8,8 @@ func findRoute(currentDir: Vector3) -> Vector3:
 	rotation_degrees.y += 5
 	var temp = rotation.y
 	if !detector.checkForObstruction() || jumpable.jumpCheck():
-		return currentDir.rotated(Vector3(0.0,0.0,0.0),temp)
+		print(currentDir.rotated(Vector3(0.0,0.0,0.0).normalized(),temp).y)
+		return currentDir.rotated(Vector3(0.0,0.0,0.0).normalized(),temp)
 	else:
+		print(temp)
 		return currentDir
