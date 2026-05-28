@@ -14,7 +14,7 @@ func jump():
 func hit(damage: int)-> void:
 	health -= damage
 
-	
+#just do a complete recode of this for obstacle avoidance
 func _physics_process(_delta: float) -> void:
 	var dirToTarget = (target.position - position).normalized()
 	
@@ -24,10 +24,13 @@ func _physics_process(_delta: float) -> void:
 		queue_free()
 	
 	scanner.rotation.y = rot.y
-	
+	velocity.x += 20
+
 	
 	var isObstructed = detector.checkForObstruction()
 	if  isObstructed:
+		rot.y = pathDetect.findRouteRot(rotation.y)
+		dir = pathDetect.findRouteDir(dir)
 		
 		
 		if!jumpable.jumpCheck():
