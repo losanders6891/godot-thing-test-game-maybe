@@ -43,10 +43,11 @@ script = ExtResource("4_ngj6e")
 
 [node name="jumpable" type="RayCast3D" parent="pathScanner" unique_id=730406618]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
-target_position = Vector3(0, 0, 1)
+target_position = Vector3(0, 0, 2)
 collision_mask = 4
 hit_from_inside = true
 collide_with_areas = true
+debug_shape_custom_color = Color(0.6142543, 0.26605502, 0.5239315, 1)
 script = ExtResource("5_65a3s")
 
 [node name="thing" type="Node3D" parent="." unique_id=960601881]
@@ -55,7 +56,7 @@ script = ExtResource("3_kjurf")
 
 [node name="objectDetect?" type="RayCast3D" parent="thing" unique_id=630447320]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-target_position = Vector3(0, 0, 1)
+target_position = Vector3(0, 0, 2)
 collision_mask = 4
 hit_from_inside = true
 collide_with_areas = true

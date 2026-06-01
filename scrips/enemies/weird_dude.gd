@@ -6,49 +6,35 @@ class_name enemy1 extends CharacterBody3D
 @onready var jumpable: HeightCheck = $pathScanner/jumpable
 var speed = 5
 var jumpSpeed = 20
-@onready var rot = target.global_rotation
 var gravity = 0.8
-@export var health: int = 30
+@export var health: int = 10
 func jump():
 	velocity.y += jumpSpeed
 func hit(damage: int)-> void:
 	health -= damage
 
-#just do a complete recode of this for obstacle avoidance
 func _physics_process(_delta: float) -> void:
 	var dirToTarget = (target.position - position).normalized()
-	
+	var lookTar = Vector3(0.0, position.y, 0.0)
 	var dir = Vector3(dirToTarget.x,0.0,dirToTarget.z)
 	
 	if health <= 0:
 		queue_free()
 	
-	scanner.rotation.y = rot.y
-	velocity.x += 20
-
-	
+	scanner.rotation.y = scanner.position.angle_to(target.position)
+	pathDetect.rotation.y = pathDetect.position.angle_to(target.position)
 	var isObstructed = detector.checkForObstruction()
 	if  isObstructed:
-		rot.y = pathDetect.findRouteRot(rotation.y)
-		dir = pathDetect.findRouteDir(dir)
-		
-		
 		if!jumpable.jumpCheck():
-			dir = Vector3(0.0, 0.0, 1.0)
-		#mostly working
-		# has to be facing object
-		#rot.y = 
+			position.x += 20.0
+			print("kill self")
 		if jumpable.jumpCheck(): 
 			if is_on_floor():
 				jump()
 	else:
-		#objectively wrong but i dont know how to fix
-		#rot.y += dir.angle_to(target.position): add to model as script?
-		var pos2D = Vector3(position.x,0.0,position.z)
-		rot.y = pos2D.angle_to(Vector3(target.position.x,0.0,target.position.z))
-	
-	#still wrong
-	rotate_y(rot.y)
+		lookTar = Vector3(target.global_transform.origin.x, position.y, target.global_transform.origin.z)
+
+	look_at(lookTar)
 	var movementVelocity = dir * speed
 	velocity = Vector3(movementVelocity.x,velocity.y,movementVelocity.z)
 	
