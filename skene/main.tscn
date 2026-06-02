@@ -37,6 +37,12 @@ size = Vector3(4, 3, 4.011)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bipqk"]
 albedo_color = Color(0.57161516, 0.7244779, 0.81916684, 1)
+metallic = 1.0
+metallic_specular = 0.55
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 7.25
+emission_operator = 1
 
 [sub_resource type="BoxMesh" id="BoxMesh_g1cg7"]
 material = SubResource("StandardMaterial3D_bipqk")
@@ -91,6 +97,8 @@ collision_mask = 0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ground" unique_id=1710482228]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0877949, 2.7692878, 3.1871414)
 custom_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
+gi_mode = 2
+gi_lightmap_texel_scale = 10.0
 mesh = SubResource("BoxMesh_0xm2m")
 skin = SubResource("Skin_h2yge")
 
@@ -99,15 +107,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.588203, 3.2605665, 2.56472)
 shape = SubResource("BoxShape3D_ig7tw")
 
 [node name="player" parent="." unique_id=1508216408 instance=ExtResource("1_wlvi1")]
-transform = Transform3D(-0.9999179, 0, -0.012810269, 0, 1, 0, 0.012810269, 0, -0.9999179, 0.32123524, 3.1857367, -8.3737955)
+transform = Transform3D(-0.9999179, 0, -0.012810269, 0, 1, 0, 0.012810269, 0, -0.9999179, 0.32123524, 3.1857367, -40.59177)
 collision_mask = 6
 
 [node name="solar orbit" type="Marker3D" parent="." unique_id=1773625034]
-transform = Transform3D(1, 0, 0, 0, -0.771625, 0.636078, 0, -0.636078, -0.771625, 0, 417.386, 469.0434)
+transform = Transform3D(1, 0, 0, 0, -0.8319545, 0.5548442, 0, -0.5548442, -0.8319545, 0, 27.592316, -3.8886795)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="solar orbit" unique_id=1124357956]
-transform = Transform3D(1, 0, 0, 0, 0.9999999, -2.9802322e-08, 0, 2.9802322e-08, 0.9999999, 0, 2.5431795, 28.492195)
-light_energy = 0.654
+transform = Transform3D(1, 0, 0, 0, 0.98600465, -0.16671702, 0, 0.16671702, 0.98600465, 0, 2.5431805, 28.492197)
+light_energy = 15.065
+light_indirect_energy = 1.875
+light_volumetric_fog_energy = 5.736
+light_angular_distance = 0.91
+light_specular = 0.744
 shadow_enabled = true
 
 [node name="block" type="StaticBody3D" parent="." unique_id=1093069740]

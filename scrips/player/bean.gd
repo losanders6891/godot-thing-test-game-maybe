@@ -1,9 +1,9 @@
 class_name playerController extends CharacterBody3D
-var movespeed = 12 
+var movespeed = 18
 var gravity = 0.8
 var jumpspeed = 20 
-var acceleration = 0.5
-var deceleration = 0.8
+var acceleration = 0.6
+var deceleration = 0.85
 var movementVelocity : Vector3 = Vector3.ZERO
 @onready var aimRay = $Neck/Camera3D/Aim # maybe export this so it can be changed?
 @onready var dashTimer: Timer = $Components/DashTime #bad code stuff, remove when code is debugged
@@ -59,12 +59,12 @@ func _physics_process(_delta):
 			dashDir = direction
 			dashCD.start()
 	if !dashTimer.is_stopped():
-			movespeed = 50
+			movespeed = 100
 			direction = dashDir
 			acceleration = 0.8
 	else:
-		movespeed = move_toward(movespeed, 12, 8)
-		if movespeed > 12:
+		movespeed = move_toward(movespeed, 18, 8)
+		if movespeed > 18:
 			deceleration = 0.95
 		else: 
 			deceleration = 0.8

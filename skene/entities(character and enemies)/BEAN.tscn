@@ -86,7 +86,7 @@ script = ExtResource("3_51gaf")
 one_shot = true
 
 [node name="DashTime" type="Timer" parent="Components" unique_id=1513925152]
-wait_time = 0.215
+wait_time = 0.095
 one_shot = true
 
 [node name="HUD" type="Control" parent="." unique_id=975967919]
